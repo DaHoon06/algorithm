@@ -17,7 +17,7 @@ function solution(numbers, hand) {
         } else if(num === 3 && num === 6 && num === 9){
             answer += 'R';
             rightIndex = num;
-        } else {
+        } else {//2 5 8 0
             let leftLength = getLength(leftIndex,num);
             let rightLength = getLength(rightIndex,num);
 
