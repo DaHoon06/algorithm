@@ -14,7 +14,6 @@ function solution(nums) {
             }
         }
     }
-
     return result.length;
 }
 //아 SET...
