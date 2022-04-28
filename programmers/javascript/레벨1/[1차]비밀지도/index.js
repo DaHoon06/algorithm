@@ -32,6 +32,15 @@ function replaceArr(arr) {
     return result;
 }
 
+//--------------------
+function solution2(n, arr1, arr2) {
+    return arr1.map((v, i) => addZero(n, (v | arr2[i]).toString(2)).replace(/1|0/g, a => +a ? '#' : ' '));
+}
+
+const addZero = (n, s) => {
+    return '0'.repeat(n - s.length) + s;
+}
+
 const n = 5; // 한변의 길이 ( 정사각형 )
 const arr1 = [9, 20, 28, 18, 11];
 const arr2 = [30, 1, 21, 17, 28];
