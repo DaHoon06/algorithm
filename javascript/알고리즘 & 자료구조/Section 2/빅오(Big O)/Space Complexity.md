@@ -31,4 +31,4 @@ arr의 길이에 따라 newArr의 사이즈도 같은 크기로 커진다. (새�
 
 따라서, **공간 복잡도 : O(n)**
 
-![](./img/space.png)
+![](img/space.png)
