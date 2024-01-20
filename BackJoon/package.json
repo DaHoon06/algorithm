@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "start": "editor.js"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  }
+}
