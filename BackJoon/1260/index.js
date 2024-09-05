@@ -136,6 +136,57 @@ function dfsByStack(graph, start, visited) {
   }
 }
 
+/**============================================== */
 
-//const graph = [[1,2,3], [0,5], [0,3], [4]];
-//const visited = Array(4).fill(false);
+let [n, m, v] = input[0].split(" ").map(Number);
+let graph = new Array(n + 1);
+
+for (let i = 0; i < graph.length; i++) {
+  graph[i] = [];
+}
+
+for (let i = 0; i < m; i++) {
+  let [from, to] = input[i + 1].split(' ').map(Number);
+  graph[from].push(to);
+  graph[to].push(from);
+}
+
+graph.forEach((elem) => {
+  elem.sort((a,b) => a - b);
+});
+
+let visited = new Array(n + 1).fill(0);
+let answer_dfs = [];
+
+function DFS(v) {
+  if (visited[v]) return;
+  answer_dfs.push(v);
+  
+  for (let i = 0; i < graph[v].length; i++) {
+    let next = graph[v][i];
+    if (visited[next] === 0) DFS(next);
+  }
+}
+
+DFS(v);
+
+let answer_bfs = [];
+function BFS(v) {
+  let queue = [v];
+  
+  while (queue.length) {
+    let x = queue.shift();
+  
+    if (visited[x] === 1) continue;
+    
+    visited[x] = 1;
+    answer_bfs.push(x);
+    
+    for (let i = 0; i < graph[x].length; i++) {
+      let next = graph[x][i];
+      if (visited[next] === 0) queue.push(next);
+    }
+  }
+}
+
+BFS(v);

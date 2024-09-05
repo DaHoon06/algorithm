@@ -1,6 +1,6 @@
 const fs = require("fs");
 const filePath =
-  process.platform === "linux" ? "/dev/stdin" : "./BackJoon/10282/input1.txt";
+  process.platform === "linux" ? "/dev/stdin" : "BackJoon/10282/input1.txt";
 
 const input = fs.readFileSync('./input1.txt').toString().split("\n");
 
