@@ -1,5 +1,5 @@
 const fs = require("fs");
-const input = fs.readFileSync("BackJoon/2747/input.txt").toString().split(" ");
+const input = fs.readFileSync("baekjoon/2747/input.txt").toString().split(" ");
 
 const size = +input[0];
 
