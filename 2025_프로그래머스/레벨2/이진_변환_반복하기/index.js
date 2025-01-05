@@ -3,14 +3,17 @@ function prepare(answer, expectedResult) {
 }
 
 function solution(s) {
-  //todo s에서 0을 제거한다.
-  let result = 0;
-  const originLength = s.length;
-  const replaceZero = s.replaceAll("0", "");
-  const length = replaceZero;
-  if (length < originLength) result++;
+  let answer = [0, 0];
 
-  var answer = [];
+  while (s.length > 1) {
+    const sLength = s.length;
+    const removeZeroText = s.replace(/0/g, "");
+    answer[0]++;
+    answer[1] += sLength - removeZeroText.length; // 제거 된 0의 개수만큼 더하기
+
+    s = removeZeroText.length.toString(2); // 2진법으로 변환
+  }
+
   return answer;
 }
 
@@ -30,11 +33,17 @@ function solution2(s) {
   return answer;
 }
 
+function solution3(s) {
+  var answer = [0, 0];
+  while (s.length > 1) {
+    answer[0]++;
+    answer[1] += (s.match(/0/g) || []).length;
+    s = s.replace(/0/g, "").length.toString(2);
+  }
+  return answer;
+}
+
 const answer1 = "110010101001";
 const result1 = [3, 8];
 
-if (prepare(answer1, result1)) {
-  console.log(result1);
-}
-
-console.log(solution2(answer1));
+console.log(solution(answer1));
